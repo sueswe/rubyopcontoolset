@@ -1,0 +1,48 @@
+Name of Database: prod
+12operating | Operating NÖGKK | 42143.4431141088 | 
+13G093 | Thomas Pohl | Date: 14.01.21 08:12:12, EM Version: 16.2.2.201703022224 | 
+14operating | Operating OÖGKK | 41576.47405684028 | 
+15operating | Operating für STGKK | 42121.33709108796 | 
+16operating | Operating KGKK | Date: 19.02.19 07:36:14, EM Version: 16.2.2.201703022224 | 
+dabawimm | Hans Wimmer | Date: 24.04.17 09:30:08, EM Version: 15.2.1.201509300906 | 
+irabhe | Henry Irabor | Date: 11.11.19 17:37:42, EM Version: 16.2.2.201703022224 | 
+mvbl1 | VAEB Projektteam | Date: 17.01.19 11:24:24, EM Version: 16.2.2.201703022224 | 
+saliyo | Yosra Salih | Date: 17.12.19 14:15:52, EM Version: 16.2.2.201703022224 | 
+testuser | Passwort: test12345 | Date: 17.1.2019 12:18:33 , EM Version: 16.2.2.201703022224 | 
+vaeb_schulung | VAEB Schulungs User | Date: 11.10.2017 13:27:31 , EM Version: 16.2.2.201703022224 | 
+Name of Database: test
+13G093 | Thomas Pohl | Date: 19.11.20 18:47:52, EM Version: 16.2.2.201703022224 | 
+15operating | NUR-Lesender User STGKK Operating | 41575.49510141204 | 
+16operating | Operating KGKK | Date: 19.02.19 08:00:03, EM Version: 16.2.2.201703022224 | 
+17admin | Benutzer zum bearbeiten der SGKK eigenen Schedules | Date: 12.01.17 12:39:49, EM Version: 15.2.1.201509300906 | 
+19operating | Operating VGKK | Date: 16.05.17 14:10:40, EM Version: 16.2.2.201703022224 | 
+awb2 | AWB2 | Date: 28.12.18 08:05:36, EM Version: 16.2.2.201703022224 | 
+ccbe | be-cc | Date: 10.10.18 09:39:01, EM Version: 16.2.2.201703022224 | 
+irabhe | Irabor Henry | Date: 02.04.19 14:33:57, EM Version: 16.2.2.201703022224 | 
+kautge | Kautz Gerald <Gerald.Kautz@itsv.at> | Date: 27.03.18 15:57:34, EM Version: 16.2.2.201703022224 | 
+machro | Roman Machate | 41956.41798319444 | 
+mBGM |  | Date: 14.02.18 17:50:23, EM Version: 16.2.2.201703022224 | 
+mvbl1 | MVBL1 | Date: 17.01.19 16:26:25, EM Version: 16.2.2.201703022224 | 
+poleca | Polesny Carolina | 41655.664762291664 | 
+saliyo | Salih Yosra | Date: 22.01.19 06:12:49, EM Version: 16.2.2.201703022224 | 
+sialra | Siala Rami <Rami.Siala@itsv.at> | Date: 05.02.18 13:04:22, EM Version: 16.2.2.201703022224 | 
+vaeb_schulung | VAEB Schulungs User | Date: 11.10.2017 13:27:31 , EM Version: 16.2.2.201703022224 | 
+zdm | ReadOnlyUser fuer Om ZDM | 41600.62848880787 | 
+Name of Database: entw
+14operating | Operating OÖGKK | 41576.47405684028 | 
+15operating | Operating für STGKK | 42121.33709108796 | 
+16operating | Operating KGKK | 41598.46402817129 | 
+18operating | Operating TGKK | Date: 08.03.17 07:38:37, EM Version: 15.2.1.201509300906 | 
+awb2 | VAEB | Date: 28.12.18 07:55:22, EM Version: 16.2.2.201703022224 | 
+haidsa | Sabine Haider | Date: 30.11.16 10:42:34, EM Version: 15.1.0.201507311721 | 
+irabhe | Irabor Henry | Date: 04.06.19 15:41:20, EM Version: 16.2.2.201703022224 | 
+kautge | Kautz Gerald <Gerald.Kautz@itsv.at> | Date: 27.03.18 15:57:34, EM Version: 16.2.2.201703022224 | 
+kernan | Andrea Kern | Date: 19.01.17 10:20:39, EM Version: 15.1.0.201507311721 | 
+machro | Roman Machate | 41956.41798319444 | 
+mBGM |  | Date: 14.02.18 17:50:23, EM Version: 16.2.2.201703022224 | 
+mvbl1 | MVBL1 | Date: 17.01.19 16:26:31, EM Version: 16.2.2.201703022224 | 
+poleca | Polesny Carolina | Date: 09.01.17 14:26:06, EM Version: 15.2.1.201509300906 | 
+saliyo | Salih Yosra | Date: 22.01.19 06:13:47, EM Version: 16.2.2.201703022224 | 
+sialra | Siala Rami <Rami.Siala@itsv.at> | Date: 05.02.18 13:04:22, EM Version: 16.2.2.201703022224 | 
+vaeb_schulung | VAEB Schulungs User | Date: 11.10.2017 13:27:31 , EM Version: 16.2.2.201703022224 | 
+zdm | ReadOnlyUser fuer Om ZDM | 41600.62848880787 | 

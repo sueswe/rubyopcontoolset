@@ -1,0 +1,68 @@
+
+require 'rake'
+#require 'rake/clean'
+require 'colorize'
+require 'logger'
+
+$stdout.sync = true
+
+log = Logger.new(STDOUT)
+log.formatter = proc do |severity, datetime, progname, msg|
+  "#{severity} #{datetime}: #{msg}\n"
+end
+
+
+
+task :default => %w[create_config create_bin install]
+
+os = RbConfig::CONFIG["host_os"]
+homeDir = ENV["HOME"]
+targetDir = ENV["HOME"] + "/bin/"
+
+puts "You are runnig on " + os.yellow
+
+
+desc "Create HOME/bin - directory".yellow
+task :create_bin do
+    #sh "mkdir $HOME/bin"
+    FileUtils.mkdir "#{homeDir}/bin" unless File.exists?("#{homeDir}/bin")
+end
+
+
+desc "Install odbc/ruby-files to: ".yellow + targetDir.cyan
+task :install do
+    files = Rake::FileList["odbc/*.rb", "service*/*.rb"]
+    #puts files
+    #puts "Zielverzeichnis: #{targetDir}"
+    files.each do |f|
+        t = File.basename(f)
+        log.info "Installing #{f} to #{targetDir}/#{t} ".cyan
+        cp( f, targetDir, {:verbose => false})
+    end
+end
+
+
+desc "Remove installed rb-files from bin-dir".yellow
+task :clean do
+    files = Rake::FileList["odbc/*.rb", "service*/*.rb"]
+    files.each do |f|
+        x = File.basename(f)
+        log.info "Removing #{targetDir}/#{x} ...".red
+        rm_f("#{targetDir}/#{x}", verbose:false)
+        #puts "#{targetDir}/#{x}"
+    end
+end
+
+desc "Write opcon-credentials into a config-file"
+task :create_config do
+  print "Enter Opcon-Database-Username: "
+  dbuser = STDIN.gets.chomp
+  print "Enter Opcon-Database-Password: "
+  dbpass = STDIN.gets.chomp
+  puts "writing config to #{homeDir}/bin/opcon.yaml ...".yellow
+  f = File.open("#{homeDir}/bin/opcon.yaml", 'w')
+  f.puts "opconuser: \"#{dbuser}\""
+  f.puts "opconpassword: \"#{dbpass}\""
+  f.close
+  puts "Thank you."
+end
