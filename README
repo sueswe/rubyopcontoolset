@@ -1,0 +1,15 @@
+### ODBC Opcon Toolset für DB-Abfragen
+
+### Installation
+
+Informationen zu den Tasks:
+
+    #> rake --tasks
+
+Um die rb-Files zu installieren ins HOME/bin/
+
+    #> rake
+
+### Uninstall
+
+    #> rake clean
