@@ -39,6 +39,21 @@ task :install do
         log.info "Installing #{f} to #{targetDir}/#{t} ".cyan
         cp( f, targetDir, {:verbose => false})
     end
+    puts ""
+    puts "Beschreibungen:".yellow
+    description = "(keine Vorhanden)"
+    files.each do |datei|
+      name = File.basename(datei)
+      File.open(datei) do |file|
+        file.each_line do |line|
+          description = "#{line}" if line.include?('Kurzbeschreibung')
+        end
+      end
+      name = name.gsub(/\s+/, '').rjust(25)
+      description = description.gsub("puts" , '|')
+      description = description.gsub(/^\s+/, "")
+      puts "#{name} #{description}"
+    end
 end
 
 
