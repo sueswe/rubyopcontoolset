@@ -36,6 +36,7 @@ optparse = OptionParser.new do |opts|
         options[:schedule] = sn
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von MASTER-Jobs - Konfigurationen in Bezug auf die Frequenz."
         puts opts
         exit
     end

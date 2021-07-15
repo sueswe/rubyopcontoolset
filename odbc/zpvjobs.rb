@@ -46,6 +46,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', '(Display this screen)' ) do
+        puts "Kurzbeschreibung: Ausgabe von History-Werten für ZPV-Jobs."
         puts opts
         #puts String.colors
         #puts "Sonstiges: ".yellow

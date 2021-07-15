@@ -43,6 +43,7 @@ optparse = OptionParser.new do |opts|
         options[:resname] = es
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von Ressourcen, zugeordneten Jobs und Werten."
         puts opts
         #puts String.colors
         #puts String.modes
@@ -115,7 +116,7 @@ ORDER BY THRESHDESC
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
-  dbh = DBI.connect("DBI:ODBC:opconxps_#{DB}","#{$usr}","#{$pwd}")
+  dbh = DBI.connect("DBI:ODBC:opconxps_#{$dataBaseShortname}","#{$usr}","#{$pwd}")
 end
 ################################################################################
 

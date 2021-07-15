@@ -37,6 +37,7 @@ optparse = OptionParser.new do |opts|
 
 
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ermöglicht ein Durchsuchen der Frequencies, inklusive Frequency-Code und After/On/Before/NotSchedule-Einstellung."
         puts opts
         #puts String.colors
         #puts String.modes

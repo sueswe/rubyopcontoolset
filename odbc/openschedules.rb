@@ -52,6 +52,7 @@ optparse = OptionParser.new do |opts|
         options[:quiet] = true
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: anzeigen von noch nicht abgeschlossenen Schedules."
         puts opts
         #puts String.colors
         #puts String.modes
@@ -78,13 +79,14 @@ else
 end
 
 
-puts "dataBaseShortname = #{$dataBaseShortname}".green
+#puts "dataBaseShortname = #{$dataBaseShortname}".green
+#puts "DB = #{DB}".red
 
 ################################################################################
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
-  dbh = DBI.connect("DBI:ODBC:opconxps_#{DB}","#{$usr}","#{$pwd}")
+  dbh = DBI.connect("DBI:ODBC:opconxps_#{$dataBaseShortname}","#{$usr}","#{$pwd}")
 end
 ################################################################################
 

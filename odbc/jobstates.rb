@@ -45,6 +45,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von aktuellen Job-Status in Bezug auf ein TEV-Datum und Schedule."
         puts opts
         #puts String.colors
         #puts String.modes

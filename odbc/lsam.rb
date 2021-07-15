@@ -53,6 +53,7 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben der Agents, OS, Ports, sowie des Connect-Status."
         puts opts
         exit
     end

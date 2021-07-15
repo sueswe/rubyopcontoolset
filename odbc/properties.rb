@@ -42,6 +42,7 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von Properties und Values."
         puts opts
         exit
     end

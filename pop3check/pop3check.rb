@@ -19,6 +19,7 @@ end
 pop.start("#{user}","#{pwd}")
 if pop.mails.empty?
     puts "Keine Emails"
+    i = 0
 else
     i = 1
     pop.mails.each do |m|

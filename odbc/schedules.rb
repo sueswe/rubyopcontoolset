@@ -56,6 +56,7 @@ optparse = OptionParser.new do |opts|
         options[:autobuild] = true
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von vorhandenen Schedules und Autobuild-Konfiguration."
         puts opts
         exit
     end

@@ -50,6 +50,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Ausgeben von MASTER-Jobs - Konfigurationen."
         puts opts
         #puts String.colors
         #puts String.modes

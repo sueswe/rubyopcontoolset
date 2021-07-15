@@ -24,6 +24,7 @@ optparse = OptionParser.new do |opts|
         options[:RefVersion] = version
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
+        puts "Kurzbeschreibung: Obsolet."
         puts opts
         exit
     end
