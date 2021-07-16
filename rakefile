@@ -41,12 +41,17 @@ task :install do
     end
     puts ""
     puts "Beschreibungen:".yellow
-    description = "(keine Vorhanden)"
+    description = " | (keine Vorhanden)"
     files.each do |datei|
       name = File.basename(datei)
       File.open(datei) do |file|
         file.each_line do |line|
-          description = "#{line}" if line.include?('Kurzbeschreibung')
+          if ( line.include?('Kurzbeschreibung') )
+            description = "#{line}"
+            break
+          else
+            description = " | (keine gefunden.)"
+          end
         end
       end
       name = name.gsub(/\s+/, '').rjust(25)
