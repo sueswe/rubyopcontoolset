@@ -31,7 +31,8 @@ end
 
 desc "Install odbc/ruby-files to: ".yellow + targetDir.cyan
 task :install do
-    files = Rake::FileList["odbc/*.rb", "service*/*.rb"]
+    #files = Rake::FileList["odbc/*.rb", "service*/*.rb"]
+    files = Rake::FileList["odbc/*.rb"]
     #puts files
     #puts "Zielverzeichnis: #{targetDir}"
     files.each do |f|
