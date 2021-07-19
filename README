@@ -1,12 +1,17 @@
-### ODBC Opcon Toolset für DB-Abfragen
+## ODBC Opcon Toolset für DB-Abfragen
 
 ### Installation
 
-Informationen zu den Tasks:
+* Basis
+
+ - apt install ruby-dev, unixodbc, unixodbc-dev
+ - gem install dbi dbd-odbc ruby-odbc
+
+* Informationen zu den Tasks:
 
     #> rake --tasks
 
-Um die rb-Files zu installieren ins HOME/bin/
+* Um die rb-Files zu installieren ins HOME/bin/
 
     #> rake
 
