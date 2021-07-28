@@ -94,7 +94,7 @@ while row = sth.fetch do
     rowValues = ''
     # for i in (0 .. 9) do
     (0 .. colCount - 1).each do |n|
-        val = row[n].yellow
+        val = row[n]
         if val.nil?
             val = '<<NULL>>'
         end
