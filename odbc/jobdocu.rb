@@ -79,7 +79,7 @@ end
 # SQL
 #
 structuredQueryLanguage = ("
-SELECT jobname,doctext
+SELECT jobname,doctext,docline
 FROM JDOCS
 JOIN sname on jdocs.skdid = sname.skdid
 AND skdname like '#{sname}'
@@ -111,7 +111,7 @@ while row = sth.fetch do
         if val.nil?
             val = '<<NULL>>'
         end
-        rowValues.concat(val.ljust(50))
+        rowValues.concat(val + ' ; ')
     end
     puts rowValues
 end
