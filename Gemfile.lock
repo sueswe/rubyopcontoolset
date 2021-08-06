@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    OptionParser (0.5.1)
+    colorize (0.8.1)
+    dbi (0.4.5)
+      deprecated (= 2.0.1)
+    deprecated (2.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  OptionParser (>= 0.5.1)
+  colorize (>= 0.8.1)
+  dbi (= 0.4.5)
+
+BUNDLED WITH
+   2.1.4
