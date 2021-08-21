@@ -3,22 +3,21 @@
 
 ### Description
 
-This set of scripts tries to select usefull informations from an OPCON-database,
-for example frequencies and which jobs they using it.
+This set of scripts tries to select usefull informations from an OPCON-database.
 
 There are following tools currently available:
 
-| Name | description |
+| Name | a very short ... |
 | :--- | :--- |
 | audit.rb | "Description: Enables the possibility to search the AUDIT-table." |
 | batchuser.rb | "Description: selects the batch-user." |
-| calendar.rb | "Description: selects all data from all calenders." |
+| calendar.rb | "Description: selects all data from/with all calenders." |
 | events.rb | "Description: selects EVENTS with Jobname, Eventstring and Schedulename." |
 | frequencies.rb | "Description: selects all Frequencies, including Frequency-Code and After/On/Before/NotSchedule-configuration." |
 | history.rb | "Description: enables the possibility to search the HISTORY-table." |
 | jobdetailmaster.rb | "Description: selects MASTER-Jobs - configurations." |
 | jobdocu.rb | "Description: selects Job-documentation from the MASTER-Jobs." |
-| jobonwhichmachine.rb | "Description: selects jobnames and machine-groups or machines." |
+| jobonwhichmachine.rb | "Description: selects jobnames and machine-groups / machines." |
 | jobs-and-frequencies.rb | "Description: selects MASTER-Job - configurations and frequencies." |
 | jobstates.rb | "Description: selects current job-state (dependend on schedule-date and schedule)." |
 | lsam.rb | "Description: selects agents, OS, ports, and connect-status." |
@@ -35,7 +34,7 @@ for your needs.
 
 ### Prerequisites
 
-For example, on apt-based systems:
+For example, on apt-based Linux systems (but it also works with Windows 10):
 
 ~~~
 sudo apt install ruby-dev unixodbc unixodbc-dev ruby-bundler
@@ -65,7 +64,12 @@ bundle
 ~~~
 
 
-### Configure the ODBC-Connections
+
+> If you like to use the toolset under Windows 10, you have to choose an installer with DEV-Kit from https://rubyinstaller.org/downloads/
+
+
+
+### Linux: install the ODBC-Connections
 
 Please refer to:
 
@@ -74,7 +78,7 @@ https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-micro
 
 ### Installing the tools to ${HOME}/bin
 
-You may or may not now copy the scripts to your HOME/bin - directory with:
+You may or may not copy the scripts to your HOME/bin - directory with:
 
 ~~~
 rake
