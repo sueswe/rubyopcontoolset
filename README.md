@@ -1,6 +1,10 @@
 ## Opcon Ruby Tools for the CLI
 
 
+> get informations from your SMA OPCON job-control-database.
+
+
+
 ### Description
 
 This set of scripts tries to select usefull informations from an OPCON-database.
@@ -34,10 +38,14 @@ for your needs.
 
 ### Prerequisites
 
+* First, you need a read-only-database-user.
+
+Now you can prepare your local installation:
+
 For example, on apt-based Linux systems (but it also works with Windows 10):
 
 ~~~
-sudo apt install ruby-dev unixodbc unixodbc-dev ruby-bundler
+$ sudo apt install ruby-dev unixodbc unixodbc-dev ruby-bundler
 ~~~
 
 Then you may configure your user-account , e.g. your .bashrc , with:
@@ -53,14 +61,14 @@ Don't forget to resource your bashrc.
 Now you have to install some gems:
 
 ~~~
-gem install dbi dbd-odbc ruby-odbc
-gem install colorize OptionParser logger
+$ gem install dbi dbd-odbc ruby-odbc
+$ gem install colorize OptionParser logger
 ~~~
 
 Now, run bundle:
 
 ~~~
-bundle
+$ bundle
 ~~~
 
 
@@ -78,11 +86,13 @@ https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-micro
 
 ### Installing the tools to ${HOME}/bin
 
-You may or may not copy the scripts to your HOME/bin - directory with:
+To install the toolset, run 
+~~~
+$ rake
+~~~
 
-~~~
-rake
-~~~
+You will be asked for the database-user and password.
+
 
 ### Usage
 
