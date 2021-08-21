@@ -43,7 +43,7 @@ optparse = OptionParser.new do |opts|
         options[:resname] = es
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ausgeben von Ressourcen, zugeordneten Jobs und Werten."
+        puts "Description: selects resources, jobs and values."
         puts opts
         #puts String.colors
         #puts String.modes

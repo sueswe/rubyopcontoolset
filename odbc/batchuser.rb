@@ -40,7 +40,7 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ermöglicht ein Durchsuchen der UNIX-Batch-User."
+        puts "Description: selects the batch-user."
         puts opts
         exit
     end

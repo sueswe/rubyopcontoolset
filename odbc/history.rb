@@ -45,7 +45,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ermöglicht ein Durchsuchen der HISTORY-Einträge."
+        puts "Description: enables the possibility to search the HISTORY-table."
         puts opts
         #puts String.colors
         #puts String.modes

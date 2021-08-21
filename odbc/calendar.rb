@@ -40,7 +40,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Gibt die Kalender inklusive eingetragenen Daten aus."
+        puts "Description: selects all data from all calenders."
         puts opts
         #puts String.colors
         #puts String.modes

@@ -41,7 +41,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', '(Display this screen)' ) do
-        puts "Kurzbeschreibung: Ausgeben von Jobname und zugeordneter Maschinengruppe bzw Maschine."
+        puts "Description: selects jobnames and machine-groups or machines."
         puts opts
         #puts String.colors
         #puts "Sonstiges: ".yellow

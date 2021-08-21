@@ -43,7 +43,7 @@ optparse = OptionParser.new do |opts|
         options[:eventname] = es
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ermöglicht ein Durchsuchen der EVENTS nach Jobname, Eventstring, Schedule."
+        puts "Description: selects EVENTS with Jobname, Eventstring and Schedulename."
         puts opts
         #puts String.colors
         #puts String.modes

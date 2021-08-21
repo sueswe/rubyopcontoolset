@@ -50,7 +50,7 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ausgeben von Maschinengruppen und zugeordneter Maschinen."
+        puts "Description: selects machinegroups and machines."
         puts opts
         exit
     end

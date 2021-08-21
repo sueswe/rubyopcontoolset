@@ -10,26 +10,25 @@ There are following tools currently available:
 
 | Name | description |
 | :--- | :--- |
-                 audit.rb | "Kurzbeschreibung: Ermöglicht ein Durchsuchen der AUDIT-Tabelle."
-             batchuser.rb | "Kurzbeschreibung: Ermöglicht ein Durchsuchen der UNIX-Batch-User."
-              calendar.rb | "Kurzbeschreibung: Gibt die Kalender inklusive eingetragenen Daten aus."
-                events.rb | "Kurzbeschreibung: Ermöglicht ein Durchsuchen der EVENTS nach Jobname, Eventstring, Schedule."
-           frequencies.rb | "Kurzbeschreibung: Ermöglicht ein Durchsuchen der Frequencies, inklusive Frequency-Code und After/On/Before/NotSchedule-Einstellung."
-               history.rb | "Kurzbeschreibung: Ermöglicht ein Durchsuchen der HISTORY-Einträge."
-       jobdetailmaster.rb | "Kurzbeschreibung: Ausgeben von MASTER-Jobs - Konfigurationen."
-               jobdocu.rb | "Kurzbeschreibung: Ausgeben von Job-Documentation-Feldern."
-     jobonwhichmachine.rb | "Kurzbeschreibung: Ausgeben von Jobname und zugeordneter Maschinengruppe bzw Maschine."
-  jobs-and-frequencies.rb | "Kurzbeschreibung: Ausgeben von MASTER-Jobs - Konfigurationen in Bezug auf die Frequenz."
-             jobstates.rb | "Kurzbeschreibung: Ausgeben von aktuellen Job-Status in Bezug auf ein TEV-Datum und Schedule."
-                  lsam.rb | "Kurzbeschreibung: Ausgeben der Agents, OS, Ports, sowie des Connect-Status."
-               machgrp.rb | "Kurzbeschreibung: Ausgeben von Maschinengruppen und zugeordneter Maschinen."
-         opcusersignon.rb | "Kurzbeschreibung: Ausgeben von Benutzer , Anmeldezeitraum sowie Client-Version."
-         openschedules.rb | "Kurzbeschreibung: anzeigen von noch nicht abgeschlossenen Schedules."
-            properties.rb | "Kurzbeschreibung: Ausgeben von Properties und Values."
-            ressources.rb | "Kurzbeschreibung: Ausgeben von Ressourcen, zugeordneten Jobs und Werten."
-             schedules.rb | "Kurzbeschreibung: Ausgeben von vorhandenen Schedules und Autobuild-Konfiguration."
-            starttimes.rb | "Kurzbeschreibung: Ausgeben von Jobs und Startzeiten."
-               zpvjobs.rb | "Kurzbeschreibung: Ausgabe von History-Werten für ZPV-Jobs."
+| audit.rb | "Description: Enables the possibility to search the AUDIT-table." |
+| batchuser.rb | "Description: selects the batch-user." |
+| calendar.rb | "Description: selects all data from all calenders." |
+| events.rb | "Description: selects EVENTS with Jobname, Eventstring and Schedulename." |
+| frequencies.rb | "Description: selects all Frequencies, including Frequency-Code and After/On/Before/NotSchedule-configuration." |
+| history.rb | "Description: enables the possibility to search the HISTORY-table." |
+| jobdetailmaster.rb | "Description: selects MASTER-Jobs - configurations." |
+| jobdocu.rb | "Description: selects Job-documentation from the MASTER-Jobs." |
+| jobonwhichmachine.rb | "Description: selects jobnames and machine-groups or machines." |
+| jobs-and-frequencies.rb | "Description: selects MASTER-Job - configurations and frequencies." |
+| jobstates.rb | "Description: selects current job-state (dependend on schedule-date and schedule)." |
+| lsam.rb | "Description: selects agents, OS, ports, and connect-status." |
+| machgrp.rb | "Description: selects machinegroups and machines." |
+| opcusersignon.rb | "Description: selects user, login-time and client-version." |
+| openschedules.rb | "Description: selects open schedules." |
+| properties.rb | "Description: selects properties and values." |
+| ressources.rb | "Description: selects resources, jobs and values." |
+| schedules.rb | "Description: selects schedules and autobuild-configuration." |
+| starttimes.rb | "Description: selects Jobs with starttimes (start-offset not 0)." |
 
 The great advantage of the CLI is, you could use grep and other tools to parse the results
 for your needs.

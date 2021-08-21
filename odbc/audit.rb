@@ -48,7 +48,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', '(Display this screen)' ) do
-        puts "Kurzbeschreibung: Ermöglicht ein Durchsuchen der AUDIT-Tabelle."
+        puts "Description: Enables the possibility to search the AUDIT-table."
         puts opts
         #puts String.colors
         #puts "Sonstiges: ".yellow

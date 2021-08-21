@@ -39,7 +39,7 @@ optparse = OptionParser.new do |opts|
         options[:schedulename] = x
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ausgeben von Job-Documentation-Feldern."
+        puts "Description: selects Job-documentation from the MASTER-Jobs."
         puts opts
         exit
     end

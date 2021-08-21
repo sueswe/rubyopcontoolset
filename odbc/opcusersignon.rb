@@ -35,7 +35,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: Ausgeben von Benutzer , Anmeldezeitraum sowie Client-Version."
+        puts "Description: selects user, login-time and client-version."
         puts opts
         #puts String.colors
         #puts String.modes

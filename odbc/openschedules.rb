@@ -52,7 +52,7 @@ optparse = OptionParser.new do |opts|
         options[:quiet] = true
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Kurzbeschreibung: anzeigen von noch nicht abgeschlossenen Schedules."
+        puts "Description: selects open schedules."
         puts opts
         #puts String.colors
         #puts String.modes

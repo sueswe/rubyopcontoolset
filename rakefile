@@ -41,24 +41,26 @@ task :install do
         cp( f, targetDir, {:verbose => false})
     end
     puts ""
-    puts "Beschreibungen:".yellow
-    description = " | (keine Vorhanden)"
+    puts "Description:".yellow
+    description = " | (nothing found.)"
     files.each do |datei|
       name = File.basename(datei)
       File.open(datei) do |file|
         file.each_line do |line|
-          if ( line.include?('Kurzbeschreibung') )
+          if ( line.include?('Description') )
             description = "#{line}"
             break
           else
-            description = " | (keine gefunden.)"
+            description = " | (nothing found.)"
           end
         end
       end
-      name = name.gsub(/\s+/, '').rjust(25)
+      #name = name.gsub(/\s+/, '').rjust(25)
+      name = name.gsub(/\s+/, '')
       description = description.gsub("puts" , '|')
       description = description.gsub(/^\s+/, "")
-      puts "#{name} #{description}"
+      description = description.gsub(/$\n+/, "")
+      puts "| #{name} #{description} |"
     end
 end
 
