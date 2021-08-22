@@ -44,26 +44,26 @@ Now you can prepare your local installation:
 
 For example, on apt-based Linux systems (but it also works with Windows 10, see note below):
 
-~~~
+```sh
 $ sudo apt install ruby-dev unixodbc unixodbc-dev ruby-bundler
-~~~
+```
 
 Then you may configure your user-account , e.g. your .bashrc , with:
 
-~~~
+```sh
 export GEM_HOME="${HOME}/.gem"
 export GEM_PATH="${HOME}/.gem"
 export PATH="${PATH}:${HOME}/bin:${GEM_PATH}/bin"
-~~~
+```
 
 Don't forget to source your .bashrc again.
 
 Now you have to install some gems:
 
-~~~
+```sh
 $ gem install dbi dbd-odbc ruby-odbc
 $ gem install colorize OptionParser logger
-~~~
+```
 
 Now, run bundle, to select the right versions of the gems:
 
@@ -112,8 +112,8 @@ So the prefix is: *opconxps_*
 
 We use three database-stages (production, testing and developement), so we called
 our databases opconxps_prod, opconxps_test and opconxps_dev.
-If we want to make a select to the production-database, we only have to need
-a shortname for the parameter like:
+If we want to make a select to the production-database, we only need
+the shortname for the parameter like:
 
 ```sh
 $ jobonwhichmachine.rb -d prod -j %somejobname%
@@ -143,5 +143,5 @@ Usage: jobstates.rb [options]
 
 ## Support
 
-If you need help, feel free to contact me (wernersuess77@gmail.com) or write an issue.
+If you need help, feel free to write an issue.
 
