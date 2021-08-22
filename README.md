@@ -7,22 +7,24 @@
 
 ### Description
 
-This set of scripts tries to select usefull informations from an OPCON-database.
+This set of ruby-scripts tries to select usefull informations from an OPCON-database.
+The idea: the great advantage of the CLI is, you could use grep and other tools to parse the results
+for your needs.
 
-There are following tools currently available:
+* There are following tools currently available:
 
 | Name | a very short ... |
 | :--- | :--- |
 | audit.rb | "Description: Enables the possibility to search the AUDIT-table." |
-| batchuser.rb | "Description: selects the batch-user." |
+| batchuser.rb | "Description: selects the configured batch-users." |
 | calendar.rb | "Description: selects all data from/with all calenders." |
-| events.rb | "Description: selects EVENTS with Jobname, Eventstring and Schedulename." |
-| frequencies.rb | "Description: selects all Frequencies, including Frequency-Code and After/On/Before/NotSchedule-configuration." |
+| events.rb | "Description: selects EVENTS with jobname, eventstring and schedulename." |
+| frequencies.rb | "Description: selects all frequencies, including frequency-code and After/On/Before/NotSchedule-configuration." |
 | history.rb | "Description: enables the possibility to search the HISTORY-table." |
-| jobdetailmaster.rb | "Description: selects MASTER-Jobs - configurations." |
-| jobdocu.rb | "Description: selects Job-documentation from the MASTER-Jobs." |
+| jobdetailmaster.rb | "Description: selects MASTER-Job - configurations." |
+| jobdocu.rb | "Description: selects job-documentation from the MASTER-jobs." |
 | jobonwhichmachine.rb | "Description: selects jobnames and machine-groups / machines." |
-| jobs-and-frequencies.rb | "Description: selects MASTER-Job - configurations and frequencies." |
+| jobs-and-frequencies.rb | "Description: selects MASTER-jobs and used frequencies." |
 | jobstates.rb | "Description: selects current job-state (dependend on schedule-date and schedule)." |
 | lsam.rb | "Description: selects agents, OS, ports, and connect-status." |
 | machgrp.rb | "Description: selects machinegroups and machines." |
@@ -33,16 +35,15 @@ There are following tools currently available:
 | schedules.rb | "Description: selects schedules and autobuild-configuration." |
 | starttimes.rb | "Description: selects Jobs with starttimes (start-offset not 0)." |
 
-The great advantage of the CLI is, you could use grep and other tools to parse the results
-for your needs.
+
 
 ### Prerequisites
 
-* First, you need a read-only-database-user.
+* First, you need a read-only-database-user for accessing the opcon-database. The rake-installer will ask you later for username and password.
 
 Now you can prepare your local installation:
 
-For example, on apt-based Linux systems (but it also works with Windows 10):
+For example, on apt-based Linux systems (but it also works with Windows 10, see note below):
 
 ~~~
 $ sudo apt install ruby-dev unixodbc unixodbc-dev ruby-bundler
@@ -73,7 +74,7 @@ $ bundle
 
 
 
-> If you like to use the toolset under Windows 10, you have to choose an installer with DEV-Kit from https://rubyinstaller.org/downloads/
+> NOTE: If you like to use the toolset under Windows 10, you have to choose an installer with DEV-Kit from https://rubyinstaller.org/downloads/
 
 
 
@@ -97,4 +98,9 @@ You will be asked for the database-user and password.
 ### Usage
 
 Every script contains a short help by calling it with option '-h' .
+
+
+### Help
+
+If you need help, feel free to contact me (wernersuess77@gmail.com) or write an issue.
 
