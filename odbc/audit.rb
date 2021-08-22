@@ -33,17 +33,17 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','Zwingend; Datenbank-Name (Anteil nach opconxps_)') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
 
     options[:fromdate] = nil
-    opts.on('-v', '--von Datum','Zwingend; Datum (YYYY-MM-DD) des Timestamps (>=)') do |date|
+    opts.on('-v', '--von date','mandatory; date (YYYY-MM-DD) of Timestamps (>=)') do |date|
         options[:fromdate] = date
     end
 
     options[:todate] = nil
-    opts.on('-b', '--bis Datum','Optional; Datum (YYYY-MM-DD) des Timestamps (<=)') do |date|
+    opts.on('-b', '--bis Datum','optional; date (YYYY-MM-DD) of Timestamps (<=)') do |date|
         options[:todate] = date
     end
 
@@ -61,7 +61,7 @@ end
 optparse.parse!
 
 if options[:databaseName] == nil
-    puts "Missing DB name (prod|test|entw). Use -h for help.".cyan
+    puts "Missing DB name postifx. Use -h for help.".cyan
     exit 2
 end
 if options[:databaseName]

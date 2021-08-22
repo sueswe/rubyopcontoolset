@@ -30,13 +30,13 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','Database-Name') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
 
-    options[:landesstelle] = nil
-    opts.on('-l', '--landesstelle LS', 'Schedule-Name') do |landstell|
-        options[:landesstelle] = landstell
+    options[:sched] = nil
+    opts.on('-s', '--schedulename sn', 'Name of the schedule (use % for widcard)') do |landstell|
+        options[:sched] = landstell
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
@@ -54,8 +54,8 @@ if options[:databaseName] == nil
     puts "Missing DB name. Use -h for help.".cyan
     exit 2
 end
-if options[:landesstelle] == nil
-    puts "Missing LandesStelle. Use -h for help.".cyan
+if options[:sched] == nil
+    puts "Missing schedule. Use -h for help.".cyan
     exit 2
 end
 

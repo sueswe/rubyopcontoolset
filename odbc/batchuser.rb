@@ -36,7 +36,7 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: lsam [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','DB-Name') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do

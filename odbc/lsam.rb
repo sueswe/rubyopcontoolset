@@ -36,7 +36,6 @@ lsamList = ("
       JOIN MACHS_AUX ma3 ON m.machid = ma3.machid AND ma3.mafc = 129
       JOIN MACHS_AUX ma4 ON m.machid = ma4.machid AND ma4.mafc = 120
       JOIN MACHS_AUX ma5 ON m.machid = ma5.machid AND ma5.mafc = 143
-
       --ORDER BY OS
       ORDER BY LSAMversion DESC
     ")
@@ -49,7 +48,7 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: lsam [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','DB-Name') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
     opts.on( '-h', '--help', 'Display this screen' ) do

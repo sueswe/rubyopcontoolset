@@ -27,19 +27,19 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databasename] = nil
-    opts.on('-d', '--databasename STR','Database-Name') do |dbname|
+    opts.on('-d', '--databasename STR','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databasename] = dbname
     end
     options[:sname] = nil
-    opts.on('-s', '--schedulename STR', 'Schedulename (Optional)') do |sn|
+    opts.on('-s', '--schedulename STR', 'schedule name (optional)') do |sn|
       options[:sname] = sn
     end
     options[:jobname] = nil
-    opts.on('-j','--jobname STR','Job Name (Optional)') do |jn|
+    opts.on('-j','--jobname STR','job name (optional)') do |jn|
         options[:jobname] = jn
     end
     options[:resname] = nil
-    opts.on('-r','--ressource STR', 'Ressource Name (Optional)') do |es|
+    opts.on('-r','--ressource STR', 'Ressource Name (optional)') do |es|
         options[:resname] = es
     end
     opts.on( '-h', '--help', 'Display this screen' ) do

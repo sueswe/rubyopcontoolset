@@ -40,7 +40,7 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databasename] = nil
-    opts.on('-d', '--databasename DB','Database-Name') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databasename] = dbname
     end
     options[:number] = 15
@@ -48,7 +48,7 @@ optparse = OptionParser.new do |opts|
         options[:number] = lines
     end
     options[:quiet] = false
-    opts.on('-q', '--quiet','Don\'t post to Grape Chat') do
+    opts.on('-q', '--quiet','Don\'t post to Chat') do
         options[:quiet] = true
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
@@ -122,8 +122,8 @@ end
 sth.finish
 dbh.disconnect if dbh
 
-url = 'https://chat.sozvers.at/services/hook/custom/1/94fc48c4759a11ebb21d0242ac140a08/'
-data = { 'payload' => JSON.dump({ 'username' => 'OM-STP-GrapeBot', 'text' => "Open Schedules @ #{$dataBaseShortname}: #{result}" }) }
+url = 'https://chat/hook/'
+data = { 'payload' => JSON.dump({ 'username' => 'Name', 'text' => "Open Schedules @ #{$dataBaseShortname}: #{result}" }) }
 puts data
 
 if not options[:quiet]

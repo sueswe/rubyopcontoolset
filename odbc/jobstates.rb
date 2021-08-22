@@ -30,12 +30,12 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','Database-Name') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
 
     options[:scheduledate] = nil
-    opts.on('-d', '--date SD', 'Schedule-Date') do |schdate|
+    opts.on('-d', '--date SD', 'Schedule-Date (format maybe yyyymmdd)') do |schdate|
         options[:scheduledate] = schdate
     end
 

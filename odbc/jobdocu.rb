@@ -31,7 +31,7 @@ options = {}
 optparse = OptionParser.new do |opts|
     opts.banner = "Usage: properties [options]"
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','DB Name') do |x|
+    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |x|
         options[:databaseName] = x
     end
     options[:schedulename] = nil
