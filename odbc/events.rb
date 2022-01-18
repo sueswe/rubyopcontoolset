@@ -98,7 +98,7 @@ puts "Eventstring = #{event}".green
 ###############################################################################
 sql = ("
 SELECT
-    SKDNAME,JOBNAME,EVDETS
+    SKDNAME,JOBNAME,EVDETS,JOBSTATUS
 FROM JEVENTS
     JOIN SNAME ON (jevents.SKDID=SNAME.SKDID)
 WHERE SKDNAME LIKE '%#{schedulename}%'
