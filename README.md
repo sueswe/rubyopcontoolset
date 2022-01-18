@@ -17,7 +17,7 @@ for your needs.
 | audit.rb | "Description: Enables the possibility to search the AUDIT-table." |
 | batchuser.rb | "Description: selects the configured batch-users." |
 | calendar.rb | "Description: selects all data from/with all calenders." |
-| disabled-frequencies | "Description: lookup jobs with a disabled frequency." |
+| disabled-frequencies.rb | "Description: lookup jobs with a disabled frequency." |
 | events.rb | "Description: selects EVENTS with jobname, eventstring and schedulename." |
 | frequencies.rb | "Description: selects all frequencies, including frequency-code and After/On/Before/NotSchedule-configuration." |
 | history.rb | "Description: enables the possibility to search the HISTORY-table." |
@@ -25,6 +25,7 @@ for your needs.
 | jobdocu.rb | "Description: selects job-documentation from the MASTER-jobs." |
 | jobonwhichmachine.rb | "Description: selects jobnames and machine-groups / machines." |
 | jobs-and-frequencies.rb | "Description: selects MASTER-jobs and used frequencies." |
+| jobs-and-machgrp.rb | "Description: show MASTER-Job-configurations in context with machine groups." |
 | jobstates.rb | "Description: selects current job-state (dependend on schedule-date and schedule)." |
 | lsam.rb | "Description: selects agents, OS, ports, and connect-status." |
 | machgrp.rb | "Description: selects machinegroups and machines." |
