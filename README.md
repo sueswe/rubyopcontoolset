@@ -17,6 +17,7 @@ for your needs.
 | audit.rb | "Description: Enables the possibility to search the AUDIT-table." |
 | batchuser.rb | "Description: selects the configured batch-users." |
 | calendar.rb | "Description: selects all data from/with all calenders." |
+| disabled-frequencies | "Description: lookup jobs with a disabled frequency." |
 | events.rb | "Description: selects EVENTS with jobname, eventstring and schedulename." |
 | frequencies.rb | "Description: selects all frequencies, including frequency-code and After/On/Before/NotSchedule-configuration." |
 | history.rb | "Description: enables the possibility to search the HISTORY-table." |
@@ -86,7 +87,7 @@ https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-micro
 
 ## Installing the tools to ${HOME}/bin
 
-To install the toolset, run 
+To install the toolset, run
 
 ~~~
 $ rake
@@ -144,4 +145,3 @@ Usage: jobstates.rb [options]
 ## Support
 
 If you need help, feel free to write an issue.
-
