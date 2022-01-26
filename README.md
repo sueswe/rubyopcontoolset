@@ -7,8 +7,10 @@
 ## Description
 
 This set of ruby-scripts tries to select usefull informations from an OPCON-database.
-The idea: the great advantage of the CLI is, you could use grep and other tools to parse the results
-for your needs.
+The idea: use the **great advantage** of the CLI - you could use grep and other tools to parse the results
+for your needs; use the output for Markdown- or Latex-Files; send results via Email ...
+and much more.
+
 
 * There are following tools currently available:
 
@@ -75,7 +77,7 @@ $ bundle
 
 
 
-> **NOTE:** If you like to use the toolset under Windows 10, you have to choose an installer with DEV-Kit from https://rubyinstaller.org/downloads/
+* **NOTE:** If you like to use the toolset under Windows 10, you have to choose an installer with *DEV*-Kit from https://rubyinstaller.org/downloads/
 
 
 
