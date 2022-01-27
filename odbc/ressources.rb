@@ -48,8 +48,7 @@ optparse = OptionParser.new do |opts|
         #puts String.colors
         #puts String.modes
         #puts String.color_samples
-        puts "\nAusgabebeschreibung:".yellow
-        puts "Schedulename | Jobname | Anzahl genutzte Ressourcen | Ressource-Name |".yellow
+        puts "Schedulename | Jobname | Used Ressources | Ressource-name |".yellow
         exit
     end
 end
@@ -65,7 +64,7 @@ if options[:databasename]
     # and those defined outside a class or module can be accessed globally.
     # (Für den connect wird eine Methode dbConnect verwendet weiter unten)
 
-    # Es geht aber auch eine globale, beginnend mit $ :
+    #global var :
     $dataBaseShortname = "#{options[:databasename]}"
 
     if options[:sname]
@@ -110,7 +109,7 @@ ORDER BY THRESHDESC
 
 ################################################################################
 #
-# Methoden
+# Methods
 #
 ################################################################################
 def dbConnect
@@ -120,28 +119,21 @@ def dbConnect
 end
 ################################################################################
 
-#puts "#{sql}".blue
 
 dbh = dbConnect
 
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount:         " + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(10))
 end
-#puts colNames
 
 while row = sth.fetch do
     rowValues = ''
 
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
 

@@ -68,18 +68,11 @@ if options[:databaseName]
     puts "Name of Database: " + DB.red
 end
 
-################################################################################
-#
-# Methoden
-#
-################################################################################
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
   dbh = DBI.connect("DBI:ODBC:opconxps_#{DB}","#{$usr}","#{$pwd}")
 end
-
-
 
 ################################################################################
 
@@ -87,16 +80,12 @@ dbh = dbConnect
 
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount:         " + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(30))
 end
-#puts colNames.blue
 
 while row = sth.fetch do
     rowValues = ''

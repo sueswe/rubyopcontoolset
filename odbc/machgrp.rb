@@ -65,12 +65,12 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: " + DB.red
+    puts "Name of database: " + DB.red
 end
 
 ################################################################################
 #
-# Methoden
+# Methods
 #
 ################################################################################
 def dbConnect
@@ -84,11 +84,8 @@ dbh = dbConnect
 
 sth = dbh.execute(machgrps)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "ColCount:         " + colCount.to_s.red
-
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(35))

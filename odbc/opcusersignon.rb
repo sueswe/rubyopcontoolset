@@ -2,6 +2,7 @@
 
 # apt install ruby-dev, unixodbc, unixodbc-dev
 # gem install dbi dbd-odbc ruby-odbc
+
 require 'dbi'
 require 'colorize'
 require 'optionparser'
@@ -52,7 +53,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: " + DB
+    puts "Name of database: " + DB
 end
 
 ################################################################################
@@ -72,28 +73,19 @@ ORDER BY USERSIGNON
 ################################################################################
 
 
-################################################################################
-#
-# Methoden
-#
-################################################################################
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
   dbh = DBI.connect("DBI:ODBC:opconxps_#{DB}","#{$usr}","#{$pwd}")
 end
+
 ################################################################################
 
 dbh = dbConnect
 
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql)
-
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount: ".rjust(20) + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 #sth.column_names.each do |name|
 #    colNames.concat(name + " | ")
@@ -102,7 +94,6 @@ colNames = ''
 
 while row = sth.fetch do
     rowValues = ''
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         n.to_s.chomp
         val = row[n].rstrip

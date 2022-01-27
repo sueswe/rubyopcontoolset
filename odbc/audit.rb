@@ -83,7 +83,7 @@ if options[:todate] == nil
     #exit 2
 else
     to_date = "#{options[:todate]}"
-    puts "todate: #{to_date}"
+    puts "to-date: #{to_date}"
 end
 
 
@@ -120,11 +120,9 @@ dbh = dbConnect
 
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-puts "ColCount: " + colCount.to_s.cyan
+#puts "ColCount: " + colCount.to_s.cyan
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " | ")
@@ -133,7 +131,6 @@ puts colNames.blue
 
 while row = sth.fetch do
     rowValues = ''
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
         rowValues.concat(val + ' | ' )

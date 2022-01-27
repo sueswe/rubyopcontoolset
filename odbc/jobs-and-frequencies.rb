@@ -59,12 +59,12 @@ if options[:schedule]
     puts "Name of schedule: " + schedulename.red
 end
 
-puts "Notiz: sql spuckt keine OR frequencies aus.".yellow
-################################################################################
+puts "Note: selects no OR frequencies.".cyan
+
 #
-# Methoden
+# Methods
 #
-################################################################################
+
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
@@ -107,11 +107,9 @@ dbh = dbConnect
 
 sth = dbh.execute(structuredQueryLanguage)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "ColCount:         " + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(50))

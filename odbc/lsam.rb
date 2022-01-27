@@ -41,8 +41,6 @@ lsamList = ("
     ")
 ################################################################################
 
-#puts lsamList
-
 options = {}
 optparse = OptionParser.new do |opts|
     opts.banner = "Usage: lsam [options]"
@@ -67,7 +65,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: " + DB.red
+    puts "Name of database: " + DB.red
 end
 
 ################################################################################
@@ -83,21 +81,15 @@ end
 ################################################################################
 
 puts "NETSTATUS:
-    This column contains the current status of the network connections between SMANetCom and the LSAM machines."
+This column contains the current status of the network connections between SMANetCom and the LSAM machines."
 #puts "OPERSTATUS:
 #    This column contains the current statuses of the LSAMs as set by Events or by the graphical interfaces.
 #    These statuses decide whether SMANetCom should communicate with each LSAM.
 #"
 
 dbh = dbConnect
-
 sth = dbh.execute(lsamList)
-
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount:         " + colCount.to_s.red
-
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " ; ")

@@ -52,7 +52,7 @@ optparse = OptionParser.new do |opts|
         options[:quiet] = true
     end
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Description: selects open schedules."
+        puts "Description: selects open schedules (not in state completed)."
         puts opts
         #puts String.colors
         #puts String.modes
@@ -69,18 +69,13 @@ if options[:databasename]
     # Constants begin with an uppercase letter. Constants defined within a
     # class or module can be accessed from within that class or module,
     # and those defined outside a class or module can be accessed globally.
-    # (Für den connect wird eine Methode dbConnect verwendet weiter unten)
 
-    # Es geht aber auch eine globale, beginnend mit $ :
     $dataBaseShortname = "#{options[:databasename]}"
 else
     puts "Sorry, missing DATABASE-Name-Option.\nUse '#{myname} -h' for help.".red
     exit 1
 end
 
-
-#puts "dataBaseShortname = #{$dataBaseShortname}".green
-#puts "DB = #{DB}".red
 
 ################################################################################
 def dbConnect
@@ -91,15 +86,8 @@ end
 ################################################################################
 
 dbh = dbConnect
-
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql % options[:number])
-
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount: ".rjust(20) + colCount.to_s.red
-
-# loop über die Spaltenamen:
 colNames = ''
 #sth.column_names.each do |name|
 #    colNames.concat(name + " | ")
@@ -110,7 +98,6 @@ result = ''
 
 while row = sth.fetch do
     rowValues = ''
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
         val.sub!('T00:00:00+00:00','')

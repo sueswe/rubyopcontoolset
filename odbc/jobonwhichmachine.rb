@@ -60,7 +60,7 @@ end
 
 if options[:databaseName]
   DB = "#{options[:databaseName]}"
-  puts "Name of Database: " + DB
+  puts "Name of database: " + DB
 end
 
 if options[:jobname]
@@ -110,11 +110,9 @@ dbh = dbConnect
 
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "ColCount: " + colCount.to_s.cyan
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " | ")

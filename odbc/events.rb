@@ -56,14 +56,6 @@ optparse.parse!
 
 if options[:databasename]
 
-    # Ruby Constants
-    # https://www.tutorialspoint.com/ruby/ruby_variables.htm
-    # Constants begin with an uppercase letter. Constants defined within a
-    # class or module can be accessed from within that class or module,
-    # and those defined outside a class or module can be accessed globally.
-    # (Für den connect wird eine Methode dbConnect verwendet weiter unten)
-
-    # Es geht aber auch eine globale, beginnend mit $ :
     $dataBaseShortname = "#{options[:databasename]}"
 
     if options[:schedulename]
@@ -108,11 +100,6 @@ ORDER BY SKDNAME;
 ")
 ###############################################################################
 
-################################################################################
-#
-# Methoden
-#
-################################################################################
 def dbConnect
   $usr = Read_config.new.get_dbuser
   $pwd = Read_config.new.get_dbpwd
@@ -125,24 +112,18 @@ puts "#{sql}".blue
 
 dbh = dbConnect
 
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-#puts "ColCount:         " + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(10))
 end
-#puts colNames
 
 while row = sth.fetch do
     rowValues = ''
 
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
 

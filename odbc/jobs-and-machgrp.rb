@@ -105,10 +105,7 @@ dbh = dbConnect
 
 sth = dbh.execute(structuredQueryLanguage)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(22))

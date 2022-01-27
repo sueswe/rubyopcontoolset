@@ -2,6 +2,7 @@
 
 # apt install ruby-dev, unixodbc, unixodbc-dev
 # gem install dbi dbd-odbc ruby-odbc
+
 require 'dbi'
 require 'colorize'
 require 'optionparser'
@@ -104,15 +105,10 @@ sql = ("
     and jmaster.jobname like '#{JOBNAME}'
     and javalue like '#{JAVALUE}'
     ")
-
-################################################################################
 #
 #--and jafc like (?)
 
-################################################################################
-#
-# Methoden
-#
+
 ################################################################################
 def dbConnect
   $usr = Read_config.new.get_dbuser
@@ -125,11 +121,9 @@ dbh = dbConnect
 
 sth = dbh.execute(sql)
 
-# colCount , also Spaltenanzahl, wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "(ColCount: " + colCount.to_s.cyan + ")"
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(10))
@@ -138,7 +132,6 @@ puts colNames.blue
 
 while row = sth.fetch do
     rowValues = ''
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         #val = row[n].to_s.yellow
         val = row[n]

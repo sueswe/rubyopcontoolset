@@ -2,6 +2,7 @@
 
 # apt install ruby-dev, unixodbc, unixodbc-dev
 # gem install dbi dbd-odbc ruby-odbc
+
 require 'dbi'
 require 'colorize'
 require 'optionparser'
@@ -40,7 +41,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Description: selects all data from all calenders."
+        puts "Description: selects data from calenders."
         puts opts
         #puts String.colors
         #puts String.modes
@@ -61,7 +62,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: ".rjust(20) + DB.red
+    puts "Name of database: ".rjust(20) + DB.red
 end
 if options[:landesstelle]
     ls = "#{options[:landesstelle]}"
@@ -95,14 +96,11 @@ end
 
 dbh = dbConnect
 
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
-puts "ColCount:         " + colCount.to_s.red
+#puts "ColCount:         " + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(10))
@@ -112,7 +110,6 @@ puts colNames.blue
 while row = sth.fetch do
     rowValues = ''
 
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
 
         val = row[n].to_s.yellow

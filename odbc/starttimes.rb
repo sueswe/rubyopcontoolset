@@ -40,7 +40,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
-        puts "Description: selects Jobs with starttimes (start-offset not 0)."
+        puts "Description: selects jobs with starttimes (only when start-offset not 0)."
         puts opts
         #puts String.colors
         #puts String.modes
@@ -51,7 +51,7 @@ end
 optparse.parse!
 
 if options[:databaseName] == nil
-    puts "Missing DB name. Use -h for help.".cyan
+    puts "Missing name of database. Use -h for help.".cyan
     exit 2
 end
 if options[:schedulename] == nil
@@ -61,7 +61,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: ".rjust(20) + DB.red
+    puts "Name of database: ".rjust(20) + DB.red
 end
 if options[:schedulename]
     sched = "#{options[:schedulename]}"
@@ -97,15 +97,10 @@ end
 ################################################################################
 
 dbh = dbConnect
-
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql)
-
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "ColCount: ".rjust(20) + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " | ")
@@ -115,7 +110,6 @@ puts colNames.blue
 while row = sth.fetch do
     rowValues = ''
 
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s.yellow.rjust(30)
         val.sub!('1900-01-01T',' ')

@@ -2,6 +2,7 @@
 
 # apt install ruby-dev, unixodbc, unixodbc-dev
 # gem install dbi dbd-odbc ruby-odbc
+
 require 'dbi'
 require 'colorize'
 require 'optionparser'
@@ -70,7 +71,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of Database: ".rjust(20) + DB.red
+    puts "Name of database: ".rjust(20) + DB.red
 end
 if options[:scheduledate]
     sdate = "#{options[:scheduledate]}"
@@ -101,7 +102,7 @@ sql = ("
 
 ################################################################################
 #
-# Methoden
+# Methods
 #
 ################################################################################
 def dbConnect
@@ -113,14 +114,11 @@ end
 
 dbh = dbConnect
 
-# Ein Parameter lässt sich übergeben, zwei aber nicht mit '(?)':
 sth = dbh.execute(sql, sdate)
 
-# colCount wird für die loop benötigt:
 colCount = sth.column_names.size
 puts "ColCount: ".rjust(20) + colCount.to_s.red
 
-# loop über die Spaltenamen:
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " | ")
@@ -130,7 +128,6 @@ puts colNames.blue
 while row = sth.fetch do
     rowValues = ''
 
-    # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         ststatus = row[3].to_i
         jobstatus = row[4].to_i
