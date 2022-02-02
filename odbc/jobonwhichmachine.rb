@@ -55,6 +55,7 @@ optparse.parse!
 
 if options[:databaseName] == nil
     puts "Missing DB name (prod|test|entw). Use -h for help.".cyan
+    puts optparse
     exit 2
 end
 
@@ -66,7 +67,8 @@ end
 if options[:jobname]
   job = "#{options[:jobname]}"
 else
-  puts "Missing a jobname or something "
+  puts "Missing a jobname or something ".red
+  puts optparse
   exit 3
 end
 

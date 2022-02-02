@@ -84,6 +84,7 @@ if options[:databasename]
     end
 else
     puts "Sorry, missing DATABASE-Name-Option.\nUse '#{myname} -h' for help.".red
+    puts optparse
     exit 1
 end
 

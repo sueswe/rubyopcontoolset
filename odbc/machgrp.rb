@@ -58,8 +58,9 @@ end
 optparse.parse!
 
 if options[:databaseName] == nil
-    text = "use -h for Help."
-    puts text.cyan
+    #text = "use -h for Help."
+    #puts text.cyan
+    puts optparse
     exit 2
 end
 

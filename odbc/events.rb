@@ -62,7 +62,8 @@ if options[:databasename]
         schedulename = "#{options[:schedulename]}"
     else
         puts "Sorry, i need a Schedulename. "
-        puts "Use '#{myname} -h' for help.".cyan
+        #puts "Use '#{myname} -h' for help.".cyan
+        puts optparse
         exit 2
     end
     if options[:jobname]
@@ -77,6 +78,7 @@ if options[:databasename]
     end
 else
     puts "Sorry, missing DATABASE-Name-Option.\nUse '#{myname} -h' for help.".red
+    puts optparse
     exit 1
 end
 

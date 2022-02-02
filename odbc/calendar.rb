@@ -53,10 +53,12 @@ optparse.parse!
 
 if options[:databaseName] == nil
     puts "Missing DB name. Use -h for help.".cyan
+    puts optparse
     exit 2
 end
 if options[:sched] == nil
     puts "Missing schedule. Use -h for help.".cyan
+    puts optparse
     exit 2
 end
 

@@ -73,6 +73,7 @@ if options[:databasename]
     $dataBaseShortname = "#{options[:databasename]}"
 else
     puts "Sorry, missing DATABASE-Name-Option.\nUse '#{myname} -h' for help.".red
+    puts optparse
     exit 1
 end
 

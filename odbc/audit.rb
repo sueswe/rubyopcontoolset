@@ -5,7 +5,7 @@
 
 require 'dbi'
 require 'colorize'
-require 'optionparser'
+require 'optparse'
 
 
 class Read_config
@@ -61,7 +61,8 @@ end
 optparse.parse!
 
 if options[:databaseName] == nil
-    puts "Missing DB name postifx. Use -h for help.".cyan
+    #puts "Missing DB name postifx. Use -h for help.".cyan
+    puts optparse
     exit 2
 end
 if options[:databaseName]
@@ -71,6 +72,7 @@ end
 
 if options[:fromdate] == nil
     puts "Missing FROM_DATE (yyyy-mm-dd). Use -h for help.".cyan
+    puts optparse
     exit 2
 else
     from_date = "#{options[:fromdate]}"

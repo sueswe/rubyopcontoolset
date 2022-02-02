@@ -48,8 +48,9 @@ end
 optparse.parse!
 
 if options[:databaseName] == nil
-    text = "use -h for Help."
-    puts text.cyan
+    #text = "use -h for Help."
+    #puts text.cyan
+    puts optparse
     exit 2
 end
 
@@ -60,7 +61,7 @@ end
 
 if options[:schedule]
     schedulename = "#{options[:schedule]}"
-    puts "chedule: " + schedulename.yellow
+    puts "Schedule: " + schedulename.yellow
 end
 
 if options[:machgrp]
@@ -68,6 +69,7 @@ if options[:machgrp]
   puts "Machgrp: " + machinegroup.yellow
 else
   puts "ERROR: Need a MACHGRP."
+  puts optparse
   exit 1
 end
 
