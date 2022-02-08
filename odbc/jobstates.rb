@@ -36,7 +36,7 @@ optparse = OptionParser.new do |opts|
     end
 
     options[:scheduledate] = nil
-    opts.on('-d', '--date SD', 'Schedule-Date (format maybe yyyymmdd)') do |schdate|
+    opts.on('-d', '--date SD', 'Schedule-Date (format : yyyymmdd)') do |schdate|
         options[:scheduledate] = schdate
     end
 

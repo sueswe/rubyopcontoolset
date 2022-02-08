@@ -38,12 +38,12 @@ optparse = OptionParser.new do |opts|
     end
 
     options[:fromdate] = nil
-    opts.on('-v', '--von date','mandatory; date (YYYY-MM-DD) of Timestamps (>=)') do |date|
+    opts.on('-f', '--from date','mandatory; date (YYYY-MM-DD) of Timestamps (>=)') do |date|
         options[:fromdate] = date
     end
 
     options[:todate] = nil
-    opts.on('-b', '--bis Datum','optional; date (YYYY-MM-DD) of Timestamps (<=)') do |date|
+    opts.on('-t', '--to date','optional; date (YYYY-MM-DD) of Timestamps (<=)') do |date|
         options[:todate] = date
     end
 
