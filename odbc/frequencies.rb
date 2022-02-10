@@ -70,7 +70,7 @@ sql_distinct = ("
 ")
 
 sql = ("
-SELECT DISTINCT FREQNAME, FREQCODE, AOBN
+SELECT DISTINCT FREQNAME, FREQCODE, AOBN, CALID
 --SELECT DISTINCT FREQNAME, FREQCODE, AOBN, SKDNAME, JOBNAME
 FROM jskd
 JOIN sname ON jskd.SKDID = sname.skdid
@@ -102,6 +102,9 @@ while row = sth.fetch do
   rowValues = ''
   (0 .. colCount - 1).each do |n|
     val = row[n].to_s
+    if val == '0'
+      val = '(no cal)'
+    end
     rowValues.concat(val + ' | ')
   end
   puts rowValues
