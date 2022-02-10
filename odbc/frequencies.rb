@@ -5,7 +5,7 @@
 
 require 'dbi'
 require 'colorize'
-require 'optionparser'
+require 'optparse'
 
 class Read_config
   require 'yaml'
@@ -35,7 +35,10 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
 
-
+    options[:countdistinct] = nil
+    opts.on('-c','--count-distinct','retrieve the count of distinct (different) frequencies') do |x|
+      options[:countdistinct] = true
+    end
 
     opts.on( '-h', '--help', 'Display this screen' ) do
         puts "Description: selects all Frequencies, including Frequency-Code and After/On/Before/NotSchedule-configuration."
@@ -59,6 +62,12 @@ if options[:databaseName]
     DB = "#{options[:databaseName]}"
 end
 
+sql_distinct = ("
+  select distinct FREQCODE, count(distinct FREQNAME) as ct from JSKD
+  group by FREQCODE
+  having count(distinct FREQNAME) > 1
+  ;
+")
 
 sql = ("
 SELECT DISTINCT FREQNAME, FREQCODE, AOBN
@@ -78,25 +87,26 @@ end
 
 dbh = dbConnect
 
-sth = dbh.execute(sql)
+if options[:countdistinct] == true
+  sth = dbh.execute(sql_distinct)
+else
+  sth = dbh.execute(sql)
+end
 
 colCount = sth.column_names.size
-
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name + " | ")
+  colNames.concat(name + " | ")
 end
-#puts colNames.blue
-
 while row = sth.fetch do
-    rowValues = ''
-
-    (0 .. colCount - 1).each do |n|
-        val = row[n].to_s
-        rowValues.concat(val + ' | ')
-    end
-    puts rowValues
+  rowValues = ''
+  (0 .. colCount - 1).each do |n|
+    val = row[n].to_s
+    rowValues.concat(val + ' | ')
+  end
+  puts rowValues
 end
+
 sth.finish
 
 dbh.disconnect if dbh
