@@ -62,12 +62,6 @@ export PATH="${PATH}:${HOME}/bin:${GEM_PATH}/bin"
 
 Don't forget to source your .bashrc again.
 
-Now you have to install some gems:
-
-```sh
-$ gem install dbi dbd-odbc ruby-odbc
-$ gem install colorize OptionParser logger bundler
-```
 
 Now, run bundle, to select the right versions of the gems:
 
