@@ -6,6 +6,7 @@
 require 'dbi'
 require 'colorize'
 require 'optionparser'
+$stdout.sync = true
 
 class Read_config
   require 'yaml'
@@ -36,7 +37,7 @@ optparse = OptionParser.new do |opts|
     end
 
     options[:scheduledate] = nil
-    opts.on('-d', '--date SD', 'Schedule-Date (format : yyyymmdd)') do |schdate|
+    opts.on('-i', '--date SD', 'Schedule-Date (format : yyyy-mm-dd)') do |schdate|
         options[:scheduledate] = schdate
     end
 
