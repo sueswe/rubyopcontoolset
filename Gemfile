@@ -10,3 +10,6 @@ gem "dbi" , "= 0.4.5"
 gem "OptionParser" , ">= 0.5.1"
 
 
+
+gem "logger", "~> 1.5"
+gem "yaml", "~> 0.2.0"

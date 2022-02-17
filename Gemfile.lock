@@ -6,6 +6,8 @@ GEM
     dbi (0.4.5)
       deprecated (= 2.0.1)
     deprecated (2.0.1)
+    logger (1.5.0)
+    yaml (0.2.0)
 
 PLATFORMS
   ruby
@@ -14,6 +16,8 @@ DEPENDENCIES
   OptionParser (>= 0.5.1)
   colorize (>= 0.8.1)
   dbi (= 0.4.5)
+  logger (~> 1.5)
+  yaml (~> 0.2.0)
 
 BUNDLED WITH
-   2.1.4
+   2.3.7
