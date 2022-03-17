@@ -31,7 +31,7 @@ myname = File.basename(__FILE__)
 # SQL
 #
 
-machgrps = ("
+machgrps_OLD = ("
   SELECT DISTINCT machgrp,machname
   FROM MACHS_AUX
   JOIN MACHS ON MACHS_AUX.machid = MACHS.machid
@@ -39,6 +39,21 @@ machgrps = ("
   WHERE mafc = 121
   ORDER BY MACHGRP
 ")
+
+machgrps = ("
+SELECT DISTINCT machgrp,
+ (SELECT mavalue
+   FROM MACHS_AUX ma2
+   WHERE ma2.MAFC = 129
+   AND 	ma2.MACHID = ma1.machid
+   )
+ FROM MACHS_AUX ma1
+ JOIN MACHS ON ma1.machid = MACHS.machid
+ JOIN MACHGRPS ON ma1.mavalue = MACHGRPS.machgrpid
+ WHERE ma1.mafc = 121
+ ORDER BY MACHGRP
+ ")
+
 ################################################################################
 
 options = {}
@@ -66,7 +81,7 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of database: " + DB.red
+    #puts "Name of database: " + DB.red
 end
 
 ################################################################################
@@ -86,12 +101,12 @@ dbh = dbConnect
 sth = dbh.execute(machgrps)
 
 colCount = sth.column_names.size
-puts "ColCount:         " + colCount.to_s.red
+#puts "ColCount:         " + colCount.to_s.red
 colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name.ljust(35))
 end
-puts colNames.blue
+#puts colNames.blue
 
 while row = sth.fetch do
     rowValues = ''
