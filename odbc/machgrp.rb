@@ -46,7 +46,7 @@ SELECT DISTINCT machgrp,
    FROM MACHS_AUX ma2
    WHERE ma2.MAFC = 129
    AND 	ma2.MACHID = ma1.machid
-   )
+ ), machname
  FROM MACHS_AUX ma1
  JOIN MACHS ON ma1.machid = MACHS.machid
  JOIN MACHGRPS ON ma1.mavalue = MACHGRPS.machgrpid
