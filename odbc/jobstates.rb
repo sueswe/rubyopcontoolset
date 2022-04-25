@@ -32,17 +32,17 @@ optparse = OptionParser.new do |opts|
     opts.banner = "Usage: #{myname} [options]"
 
     options[:databaseName] = nil
-    opts.on('-d', '--databasename DB','mandatory; database name (prefix = \'opconxps_\')') do |dbname|
+    opts.on('-d', '--databasename DB','mandatory; Database-name (prefix = \'opconxps_\')') do |dbname|
         options[:databaseName] = dbname
     end
 
     options[:scheduledate] = nil
-    opts.on('-i', '--imerominia SD', 'Schedule-Date (format : yyyy-mm-dd)') do |schdate|
+    opts.on('-i', '--imerominia SD', 'optional; Schedule-Date (format : yyyy-mm-dd) '.yellow) do |schdate|
         options[:scheduledate] = schdate
     end
 
     options[:schedulename] = nil
-    opts.on('-s', '--schedule SN', 'Schedule-Name') do |schname|
+    opts.on('-s', '--schedule SN', 'mandatory; Schedule-Name') do |schname|
         options[:schedulename] = schname
     end
 
@@ -62,11 +62,11 @@ if options[:databaseName] == nil
     puts optparse
     exit 2
 end
-if options[:scheduledate] == nil
-    puts "Missing schedule-date. Use -h for help.".cyan
-    puts optparse
-    exit 2
-end
+#if options[:scheduledate] == nil
+#    puts "Missing schedule-date. Use -h for help.".cyan
+#    puts optparse
+#    exit 2
+#end
 if options[:schedulename] == nil
     puts "Missing schedule-name. Use -h for help.".cyan
     puts optparse
@@ -90,6 +90,17 @@ end
 #
 # SQL
 #
+sql_withoutdate = ("
+    select
+    --CONVERT(smalldatetime,STARTSTAMP - 2),
+    CONVERT(smalldatetime,SKDDATE -2)  as SDATE,SKDNAME,JOBNAME,STSTATUS,JOBSTATUS
+    from SMASTER
+    JOIN SNAME ON (SMASTER.SKDID = SNAME.SKDID)
+    where SKDNAME like '%#{sname}%'
+    --and CONVERT(smalldatetime,SKDDATE - 2) = (?)
+    --and JOBSTATUS != '900'
+    ORDER BY JOBSTATUS ASC
+")
 sql = ("
     select
     --CONVERT(smalldatetime,STARTSTAMP - 2),
@@ -118,7 +129,11 @@ end
 
 dbh = dbConnect
 
-sth = dbh.execute(sql, sdate)
+if options[:scheduledate] == nil
+  sth = dbh.execute(sql_withoutdate)
+else
+  sth = dbh.execute(sql, sdate)
+end
 
 colCount = sth.column_names.size
 puts "ColCount: ".rjust(20) + colCount.to_s.red
