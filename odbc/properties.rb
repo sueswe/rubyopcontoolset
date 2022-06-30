@@ -81,13 +81,13 @@ dbh = dbConnect
 sth = dbh.execute(structuredQueryLanguage)
 
 colCount = sth.column_names.size
-puts "ColCount:         " + colCount.to_s.red
+#puts "ColCount:         " + colCount.to_s.red
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(50))
+    colNames.concat(name + ' | ')
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''
@@ -97,7 +97,7 @@ while row = sth.fetch do
             val = '<<NULL>>'
         end
         # val\tval\tval\t
-        rowValues.concat(val.ljust(50))
+        rowValues.concat(val  + ' | ')
     end
     puts rowValues
 end

@@ -48,7 +48,7 @@ optparse = OptionParser.new do |opts|
     end
 
     opts.on( '-h', '--help', '(Display this screen)' ) do
-        puts "Description: Enables the possibility to search the AUDIT-table."
+        puts "Description: Search the AUDIT-table."
         puts opts
         #puts String.colors
         #puts "Sonstiges: ".yellow
@@ -129,7 +129,7 @@ colNames = ''
 sth.column_names.each do |name|
     colNames.concat(name + " | ")
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''

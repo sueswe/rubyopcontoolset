@@ -101,7 +101,7 @@ end
 dbh = dbConnect
 sth = dbh.execute(sql)
 colCount = sth.column_names.size
-puts "ColCount: ".rjust(20) + colCount.to_s.red
+#puts "ColCount: ".rjust(20) + colCount.to_s.red
 
 colNames = ''
 sth.column_names.each do |name|

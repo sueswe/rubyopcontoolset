@@ -96,7 +96,7 @@ and ja2.jobname = j.jobname
 FROM jskd j
 JOIN sname s ON j.skdid = s.skdid
 WHERE s.skdname like '#{schedulename}'
-and j.freqname not like 'OR%'
+--and j.freqname not like 'OR%'
 ")
 #
 #
@@ -113,9 +113,9 @@ puts "ColCount:         " + colCount.to_s.red
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(50))
+    colNames.concat(name + ' | ')
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''
@@ -125,7 +125,7 @@ while row = sth.fetch do
         if val.nil?
             val = '<<NULL>>'
         end
-        rowValues.concat(val.ljust(12) + ' ; ')
+        rowValues.concat(val + ' | ')
     end
     puts rowValues
 end

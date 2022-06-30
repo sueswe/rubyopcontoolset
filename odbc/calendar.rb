@@ -64,11 +64,11 @@ end
 
 if options[:databaseName]
     DB = "#{options[:databaseName]}"
-    puts "Name of database: ".rjust(20) + DB.red
+    puts "Name of database: " + DB.red
 end
-if options[:landesstelle]
-    ls = "#{options[:landesstelle]}"
-    puts "Schedulename: ".rjust(20) + ls.red
+if options[:sched]
+    ls = "#{options[:sched]}"
+    puts "Schedulename: " + ls.red
 end
 
 ################################################################################
@@ -78,7 +78,7 @@ end
 sql = ("
 select CALNAME, convert(smalldatetime,CALDATE-2) as DATUM from CALDATA
 join CALDESC on CALDATA.CALID = CALDESC.CALID
-where CALNAME like '#{ls}%'
+where CALNAME like '#{ls}'
 order by DATUM DESC
 ")
 ################################################################################
@@ -101,13 +101,12 @@ dbh = dbConnect
 sth = dbh.execute(sql)
 
 colCount = sth.column_names.size
-#puts "ColCount:         " + colCount.to_s.red
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(10))
+    colNames.concat(name + ' | ')
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''

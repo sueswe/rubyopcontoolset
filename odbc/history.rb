@@ -117,7 +117,7 @@ colCount = sth.column_names.size
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(15))
+    colNames.concat(name + ' | ')
 end
 puts colNames
 

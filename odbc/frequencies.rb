@@ -96,7 +96,7 @@ end
 colCount = sth.column_names.size
 colNames = ''
 sth.column_names.each do |name|
-  colNames.concat(name + " | ")
+  colNames.concat(name + ' | ')
 end
 while row = sth.fetch do
   rowValues = ''

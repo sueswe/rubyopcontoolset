@@ -91,9 +91,9 @@ sth = dbh.execute(sql % options[:number])
 colCount = sth.column_names.size
 colNames = ''
 #sth.column_names.each do |name|
-#    colNames.concat(name + " | ")
+#  colNames.concat(name + " | ")
 #end
-#puts colNames.blue
+#puts colNames
 
 result = ''
 
@@ -102,7 +102,7 @@ while row = sth.fetch do
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
         val.sub!('T00:00:00+00:00','')
-        rowValues.concat(val + ' ' )
+        rowValues.concat(val + ', ' )
     end
     puts rowValues
     result = result.concat( " ; \n" + rowValues)
@@ -110,7 +110,8 @@ end
 sth.finish
 dbh.disconnect if dbh
 
-url = 'https://chat/hook/'
+#url = 'https://chat/hook/'
+url = 'https://chat.sozvers.at/services/hook/custom/1/94fc48c4759a11ebb21d0242ac140a08/'
 data = { 'payload' => JSON.dump({ 'username' => 'Name', 'text' => "Open Schedules @ #{$dataBaseShortname}: #{result}" }) }
 puts data
 

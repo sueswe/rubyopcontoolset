@@ -96,11 +96,11 @@ else
 end
 
 colCount = sth.column_names.size
-puts "ColCount:         " + colCount.to_s.red
+#puts "ColCount:         " + colCount.to_s.red
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(50))
+    colNames.concat(name + ' | ')
 end
 puts colNames.blue
 
@@ -112,7 +112,7 @@ while row = sth.fetch do
         if val.nil?
             val = '<<NULL>>'
         end
-        rowValues.concat(val.ljust(50))
+        rowValues.concat(val + ' | ')
     end
     puts rowValues
 end

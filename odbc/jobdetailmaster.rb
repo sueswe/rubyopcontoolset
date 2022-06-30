@@ -127,9 +127,9 @@ puts "(ColCount: " + colCount.to_s.cyan + ")"
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(10))
+    colNames.concat(name  + ' | ')
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''

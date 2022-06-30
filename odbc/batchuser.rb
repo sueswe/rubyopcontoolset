@@ -79,13 +79,14 @@ dbh = dbConnect
 sth = dbh.execute(sql)
 
 colCount = sth.column_names.size
-puts "ColCount:         " + colCount.to_s.red
+#puts "ColCount:         " + colCount.to_s.red
 
 colNames = ''
-sth.column_names.each do |name|
-    colNames.concat(name.ljust(30))
-end
-puts colNames.blue
+#sth.column_names.each do |name|
+    #colNames.concat(name.ljust(30))
+    #colNames.concat(name + " | ")
+#end
+#puts colNames
 
 while row = sth.fetch do
     rowValues = ''

@@ -70,17 +70,17 @@ if options[:databasename]
     if options[:sname]
         schedule= options[:sname].to_s
     else
-      puts "(no Schedulename given. It's okay.)".rjust(60)
+      puts "(no Schedulename given. It's okay.)"
   end
     if options[:jobname]
         jobname = "#{options[:jobname]}"
     else
-        puts "(no jobname given. It's okay.)".rjust(60)
+        puts "(no jobname given. It's okay.)"
     end
     if options[:resname]
         ressource = "#{options[:resname]}"
     else
-        puts "(no ressource name given. It's okay.)".rjust(60)
+        puts "(no ressource name given. It's okay.)"
     end
 else
     puts "Sorry, missing DATABASE-Name-Option.\nUse '#{myname} -h' for help.".red
@@ -129,7 +129,7 @@ colCount = sth.column_names.size
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(10))
+    colNames.concat(name  + ' | ')
 end
 
 while row = sth.fetch do

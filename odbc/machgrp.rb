@@ -104,7 +104,7 @@ colCount = sth.column_names.size
 #puts "ColCount:         " + colCount.to_s.red
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(35))
+    colNames.concat(name + ' | ')
 end
 #puts colNames.blue
 
@@ -116,7 +116,7 @@ while row = sth.fetch do
         if val.nil?
             val = '<<NULL>>'
         end
-        rowValues.concat(val + " ; ")
+        rowValues.concat(val + ' | ')
     end
     puts rowValues
 end

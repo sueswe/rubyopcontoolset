@@ -110,9 +110,9 @@ sth = dbh.execute(structuredQueryLanguage)
 colCount = sth.column_names.size
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(22))
+    colNames.concat(name + ' | ')
 end
-puts colNames.blue
+puts colNames
 
 while row = sth.fetch do
     rowValues = ''
@@ -122,7 +122,7 @@ while row = sth.fetch do
         if val.nil?
             val = '<<NULL>>'
         end
-        rowValues.concat(val.ljust(20) + ' ; ')
+        rowValues.concat(val + ' | ')
     end
     puts rowValues
 end

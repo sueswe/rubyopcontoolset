@@ -35,6 +35,11 @@ optparse = OptionParser.new do |opts|
         options[:databaseName] = dbname
     end
 
+    options[:skdname] = nil
+    opts.on('-s','--schedule SKDNAME','') do |j|
+      options[:skdname] = j
+    end
+
     options[:jobname] = nil
     opts.on('-j','--jobname JOB','') do |j|
       options[:jobname] = j
@@ -72,7 +77,13 @@ else
   exit 3
 end
 
-
+if options[:skdname]
+  schedulename = options[:skdname]
+else
+  puts "Missing a schedulename ".red
+  puts optparse
+  exit 3
+end
 
 ################################################################################
 #
@@ -85,17 +96,18 @@ JOIN sname    ON jmaster_aux.skdid = sname.skdid
 JOIN jmaster  ON jmaster_aux.skdid = jmaster.skdid AND jmaster_aux.jobname = jmaster.jobname
 JOIN machs    on jmaster.primmachid = machs.machid
 JOIN machgrps on jmaster.machgrpid = machgrps.MACHGRPID
-where jmaster_AUX.JOBNAME like '%#{job}%'
+where jmaster_AUX.JOBNAME like '#{job}'
+and SKDNAME like '#{schedulename}'
 --AND (jafc = 6001 OR jafc = 6004 OR jafc = 6005 OR jafc = 3003 OR jafc = 3001 or jafc = 1004 or jafc = 1006 or jafc = 1003 or jafc = 1005)
 order by machgrp
 ;
 ")
 ################################################################################
-puts "-" * 40
-puts "Going to run:".yellow
-puts "-" * 40
-puts sql.green
-puts "-" * 40
+#puts "-" * 40
+#puts "Going to run:".yellow
+#puts "-" * 40
+#puts sql.green
+#puts "-" * 40
 ################################################################################
 #
 # Methoden
@@ -113,11 +125,11 @@ dbh = dbConnect
 sth = dbh.execute(sql)
 
 colCount = sth.column_names.size
-puts "ColCount: " + colCount.to_s.cyan
+#puts "ColCount: " + colCount.to_s.cyan
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name + " | ")
+    colNames.concat(name + ' | ')
 end
 puts colNames.blue
 
@@ -126,7 +138,7 @@ while row = sth.fetch do
     # for i in (0 .. 9) do, für jede Spalte also:
     (0 .. colCount - 1).each do |n|
         val = row[n].to_s
-        rowValues.concat(val + ' | ' )
+        rowValues.concat(val + ' | ')
     end
     puts rowValues
 end

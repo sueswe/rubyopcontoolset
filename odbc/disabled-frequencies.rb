@@ -85,7 +85,7 @@ colCount = sth.column_names.size
 
 colNames = ''
 sth.column_names.each do |name|
-    colNames.concat(name.ljust(30))
+    colNames.concat(name + ' | ')
 end
 
 while row = sth.fetch do
@@ -97,7 +97,7 @@ while row = sth.fetch do
             val = '<<NULL>>'
         end
         # rowValues.concat(val.ljust(30) + " ; ")
-        rowValues.concat(val + ' ; ')
+        rowValues.concat(val + ' | ')
         #rowValues.concat(val)
     end
     puts rowValues
